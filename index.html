@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Moip by SOSTheBlack</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Moip</h1>
+        <h2>This is a package of a payment intermediary called MOIP</h2>
+        <a href="https://github.com/SOSTheBlack/moip" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="moip-laravel-package" class="anchor" href="#moip-laravel-package"><span class="octicon octicon-link"></span></a>MoIP (Laravel Package)</h1>
+
+<hr>
+
+<p><a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/stable.svg" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/downloads.svg" alt="Total Downloads"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/unstable.svg" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/license.svg" alt="License"></a></p>
+
+<p>Integrates via API, your e-commerce with MoIP quickly and easily</p>
+
+<ul>
+<li><code>Moip::sendMoip($data);</code></li>
+<li>
+<code>Moip::response</code>;</li>
+</ul>
+
+<p>and response</p>
+
+<ul>
+<li><code>public 'response' =&gt; true</code></li>
+<li><code>public 'error' =&gt; false</code></li>
+<li><code>public 'token' =&gt; 'J2E011C4K15150C2Y093Q5R0B0K1C2U7H4A0C070V0P0N0Y6W2X8G1T3M0R9'</code></li>
+<li><code>public 'payment_url' =&gt; do?token=J2E011C4K15150C2Y093Q5R0B0K1C2U7H4A0C070V0P0N0Y6W2X8G1T3M0R9'</code></li>
+<li><code>public 'xmlSend' =&gt; '&lt;?xml version="1.0" encoding="utf-8"?&gt;... &lt;/EnviarInstrucao&gt;'</code></li>
+<li><code>public 'xmlGet' =&gt; '&lt;ns1:EnviarInstrucaoUnicaResponse...&lt;/ns1:EnviarInstrucaoUnicaResponse&gt;'</code></li>
+</ul>
+
+<h2>
+<a name="instalation" class="anchor" href="#instalation"><span class="octicon octicon-link"></span></a>Instalation</h2>
+
+<h3>
+<a name="laravel-42-and-blow" class="anchor" href="#laravel-42-and-blow"><span class="octicon octicon-link"></span></a>Laravel 4.2 and Blow</h3>
+
+<p>Begin by installing this package through Composer. Edit your project's <code>composer.json</code> file to require <code>sostheblack/moip</code>.</p>
+
+<p>soon in version v1.*</p>
+
+<pre><code>"require-dev": {
+    "sostheblack/moip": "1.*"
+}
+</code></pre>
+
+<p>Next, update Composer from the Terminal:</p>
+
+<pre><code>$ composer update
+</code></pre>
+
+<p>Once that's been completed, the next step operation is to copy the file that is in moip.php <code>vendor/sostheblack/src/config/moip.php</code> and Paste in <code>app/config</code></p>
+
+<p>Make the necessary settings and proceed to the next step</p>
+
+<p>Once this operation completes, the final step is to add the service provider and facade. Open <code>app/config/app.php</code>.</p>
+
+<p>Add a new item to the providers array.</p>
+
+<pre><code>'providers' =&gt; array(
+    'Illuminate\Foundation\Providers\ArtisanServiceProvider',
+    'Illuminate\Auth\AuthServiceProvider',
+    ...
+    'SOSTheBlack\Moip\ServiceProvider',
+),
+</code></pre>
+
+<p>Add a new item to the facades array.</p>
+
+<pre><code>'aliases' =&gt; array(
+    'App'        =&gt; 'Illuminate\Support\Facades\App',
+    'Artisan'    =&gt; 'Illuminate\Support\Facades\Artisan',
+    ...
+    'Moip'       =&gt; 'SOSTheBlack\Moip\Facade',
+),
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="simple" class="anchor" href="#simple"><span class="octicon octicon-link"></span></a>simple</h3>
+
+<p>Sent only the total sale, is configured to send data in <code>app/config/moip.php</code></p>
+
+<pre><code>$data = ['values' =&gt; ['value' =&gt; $full_price_products] ];
+try {
+    $moip = Moip::sendMoip($data);
+} catch (Exception $e) {
+    echo $e-&gt;getMessage();
+}
+</code></pre>
+
+<h3>
+<a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced</h3>
+
+<p>Fully customize the data sent!</p>
+
+<pre><code>$data = [
+    'unique_id' =&gt; 100000001,
+    'reason'    =&gt; 'market of Natal 01',
+    'receiver'  =&gt; 'jean@comunicaweb.com.br',
+    'parcel'    =&gt; ['min' =&gt; 2, 'max' =&gt; 12, 'rate' =&gt; 1.5, 'transfer' =&gt; true],
+    'values'    =&gt; ['value' =&gt; $full_price_products , 'adds' =&gt; $freight, 'deduct'=&gt; $coupon],
+];
+try {
+    $moip = Moip::sendMoip($data);
+} catch (Exception $e) {
+    echo $e-&gt;getMessage();
+}
+</code></pre>
+
+<h2>
+<a name="sending-parameters" class="anchor" href="#sending-parameters"><span class="octicon octicon-link"></span></a>Sending parameters</h2>
+
+<h4>
+<a name="values" class="anchor" href="#values"><span class="octicon octicon-link"></span></a>values</h4>
+
+<h5>
+<a name="full_price_products-number-freight-number-coupon-number" class="anchor" href="#full_price_products-number-freight-number-coupon-number"><span class="octicon octicon-link"></span></a>$full_price_products: Number, $freight: Number, $coupon: Number</h5>
+
+<ol>
+<li>$full_price_products: Responsible for setting the value that should be paid.</li>
+<li>$freigth: Responsible for defining the additional amount to be paid.</li>
+<li>
+<p>$deduct: Responsible for defining the value of discount will be subtracted from the total to be paid.</p>
+
+<p>$data['values'] =&gt; [
+    'value'     =&gt; $full_price_products,
+    'adds'      =&gt; $freigth,
+    'dedudct'   =&gt; $deduct
+];</p>
+</li>
+</ol>
+
+<h4>
+<a name="unique_id" class="anchor" href="#unique_id"><span class="octicon octicon-link"></span></a>unique_id</h4>
+
+<h5>
+<a name="id-string" class="anchor" href="#id-string"><span class="octicon octicon-link"></span></a>$id: String</h5>
+
+<p>Its unique identifier request this same information will be sent to you on our notification of changes in status so that you can identify and treat your application status.</p>
+
+<pre><code>$data['unique_id'] = $id;
+</code></pre>
+
+<h4>
+<a name="reason" class="anchor" href="#reason"><span class="octicon octicon-link"></span></a>reason</h4>
+
+<h5>
+<a name="value-string" class="anchor" href="#value-string"><span class="octicon octicon-link"></span></a>$value: String</h5>
+
+<p>Responsible for defining the reason for the payment</p>
+
+<pre><code>$data['reason'] =&gt; $value;
+</code></pre>
+
+<h4>
+<a name="receiver" class="anchor" href="#receiver"><span class="octicon octicon-link"></span></a>receiver</h4>
+
+<h5>
+<a name="receiver-string" class="anchor" href="#receiver-string"><span class="octicon octicon-link"></span></a>$receiver String</h5>
+
+<p>Identifies the user who will receive payment in MoIP</p>
+
+<pre><code>$data['receiver'] = $receiver
+</code></pre>
+
+<h4>
+<a name="parcel" class="anchor" href="#parcel"><span class="octicon octicon-link"></span></a>parcel</h4>
+
+<h5>
+<a name="min-number-max-number-rate--number-transfer--boolean" class="anchor" href="#min-number-max-number-rate--number-transfer--boolean"><span class="octicon octicon-link"></span></a>$min: Number, $max: Number, $rate : Number, $transfer : Boolean</h5>
+
+<p>Responsible for the installment which will be available to the paying options.</p>
+
+<ol>
+<li>$min : Minimum number of plots available to the paying.</li>
+<li>$max : Maximum amount of shares available to the paying.</li>
+<li>$rate : Amount of interest a.m per parcel.</li>
+<li>
+<p>$transfer : If <code>true</code> sets the default value of the interest will be paid by the paying MOIP.</p>
+
+<p>$data['parcel'] =&gt; [
+    'min'       =&gt; 2, 
+    'max'       =&gt; 12, 
+    'rate'      =&gt; 1.5, 
+    'transfer'  =&gt; false
+];</p>
+</li>
+</ol>
+
+<h3>
+<a name="data-response" class="anchor" href="#data-response"><span class="octicon octicon-link"></span></a>Data Response</h3>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$moip-&gt;error</td>
+<td>false or error message</td>
+</tr>
+<tr>
+<td>$moip-&gt;response</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>$moip-&gt;token</td>
+<td>token request</td>
+</tr>
+<tr>
+<td>$moip-&gt;payment_url</td>
+<td>payment url</td>
+</tr>
+<tr>
+<td>$moip-&gt;xmlSend</td>
+<td>xml sent</td>
+</tr>
+<tr>
+<td>$moip-&gt;xmlGet</td>
+<td>xml reponse</td>
+</tr>
+<tr>
+<td>Moip::response()</td>
+<td>object equal to all previous methods</td>
+</tr>
+</tbody>
+</table>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/SOSTheBlack/moip/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/SOSTheBlack/moip/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/SOSTheBlack/moip"></a> is maintained by <a href="https://github.com/SOSTheBlack">SOSTheBlack</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
