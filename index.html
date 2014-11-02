@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <meta name="description" content="Moip : This is a package of a payment intermediary called MOIP">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Moip by SOSTheBlack</title>
+    <title>Moip</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Moip</h1>
-        <h2>This is a package of a payment intermediary called MOIP</h2>
-        <a href="https://github.com/SOSTheBlack/moip" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/SOSTheBlack/moip">View on GitHub</a>
+
+          <h1 id="project_title">Moip</h1>
+          <h2 id="project_tagline">This is a package of a payment intermediary called MOIP</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/SOSTheBlack/moip/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/SOSTheBlack/moip/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a name="moip-laravel-package" class="anchor" href="#moip-laravel-package"><span class="octicon octicon-link"></span></a>MoIP (Laravel Package)</h1>
 
 <hr>
@@ -46,12 +49,13 @@
 <p>and response</p>
 
 <ul>
-<li><code>public 'response' =&gt; true</code></li>
-<li><code>public 'error' =&gt; false</code></li>
-<li><code>public 'token' =&gt; 'J2E011C4K15150C2Y093Q5R0B0K1C2U7H4A0C070V0P0N0Y6W2X8G1T3M0R9'</code></li>
-<li><code>public 'payment_url' =&gt; do?token=J2E011C4K15150C2Y093Q5R0B0K1C2U7H4A0C070V0P0N0Y6W2X8G1T3M0R9'</code></li>
-<li><code>public 'xmlSend' =&gt; '&lt;?xml version="1.0" encoding="utf-8"?&gt;... &lt;/EnviarInstrucao&gt;'</code></li>
-<li><code>public 'xmlGet' =&gt; '&lt;ns1:EnviarInstrucaoUnicaResponse...&lt;/ns1:EnviarInstrucaoUnicaResponse&gt;'</code></li>
+<li><code>$moip-&gt;error</code></li>
+<li><code>$moip-&gt;response</code></li>
+<li><code>$moip-&gt;token</code></li>
+<li><code>$moip-&gt;payment_url</code></li>
+<li><code>$moip-&gt;xmlSend</code></li>
+<li><code>$moip-&gt;xmlGet</code></li>
+<li><code>Moip::response()</code></li>
 </ul>
 
 <h2>
@@ -71,8 +75,7 @@
 
 <p>Next, update Composer from the Terminal:</p>
 
-<pre><code>$ composer update
-</code></pre>
+<p><code>$ composer update</code></p>
 
 <p>Once that's been completed, the next step operation is to copy the file that is in moip.php <code>vendor/sostheblack/src/config/moip.php</code> and Paste in <code>app/config</code></p>
 
@@ -100,6 +103,11 @@
 ),
 </code></pre>
 
+<h3>
+<a name="laravel-5-and-abouve" class="anchor" href="#laravel-5-and-abouve"><span class="octicon octicon-link"></span></a>Laravel 5 and Abouve</h3>
+
+<p>coming soon</p>
+
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
@@ -124,9 +132,25 @@ try {
 <pre><code>$data = [
     'unique_id' =&gt; 100000001,
     'reason'    =&gt; 'market of Natal 01',
-    'receiver'  =&gt; 'jean@comunicaweb.com.br',
-    'parcel'    =&gt; ['min' =&gt; 2, 'max' =&gt; 12, 'rate' =&gt; 1.5, 'transfer' =&gt; true],
-    'values'    =&gt; ['value' =&gt; $full_price_products , 'adds' =&gt; $freight, 'deduct'=&gt; $coupon],
+    'receiver'  =&gt; 'integracao@moip.com.br',
+    'parcel'    =&gt; [
+        'min'       =&gt; 2, 
+        'max'       =&gt; 12, 
+        'rate'      =&gt; 1.5, 
+        'transfer'  =&gt; true
+    ],
+    'values'    =&gt; [
+        'value' =&gt; $full_price_products , 
+        'adds'  =&gt; $freight, 
+        'deduct'=&gt; $coupon
+    ],
+    'comission' =&gt; [
+        'value'           =&gt; 7, 
+        'reason'          =&gt; 'Taxa MoIP', 
+        'ratePayer'       =&gt; true,
+        'percentageValue' =&gt; true,
+        'receiver'        =&gt; 'suporte@moip.com.br',
+    ]
 ];
 try {
     $moip = Moip::sendMoip($data);
@@ -147,16 +171,15 @@ try {
 <ol>
 <li>$full_price_products: Responsible for setting the value that should be paid.</li>
 <li>$freigth: Responsible for defining the additional amount to be paid.</li>
-<li>
-<p>$deduct: Responsible for defining the value of discount will be subtracted from the total to be paid.</p>
+<li>$deduct: Responsible for defining the value of discount will be subtracted from the total to be paid.</li>
+</ol>
 
-<p>$data['values'] =&gt; [
+<pre><code>$data['values'] =&gt; [
     'value'     =&gt; $full_price_products,
     'adds'      =&gt; $freigth,
     'dedudct'   =&gt; $deduct
-];</p>
-</li>
-</ol>
+];
+</code></pre>
 
 <h4>
 <a name="unique_id" class="anchor" href="#unique_id"><span class="octicon octicon-link"></span></a>unique_id</h4>
@@ -166,8 +189,7 @@ try {
 
 <p>Its unique identifier request this same information will be sent to you on our notification of changes in status so that you can identify and treat your application status.</p>
 
-<pre><code>$data['unique_id'] = $id;
-</code></pre>
+<p><code>$data['unique_id'] = $id;</code></p>
 
 <h4>
 <a name="reason" class="anchor" href="#reason"><span class="octicon octicon-link"></span></a>reason</h4>
@@ -177,8 +199,7 @@ try {
 
 <p>Responsible for defining the reason for the payment</p>
 
-<pre><code>$data['reason'] =&gt; $value;
-</code></pre>
+<p><code>$data['reason'] =&gt; $value;</code></p>
 
 <h4>
 <a name="receiver" class="anchor" href="#receiver"><span class="octicon octicon-link"></span></a>receiver</h4>
@@ -188,8 +209,7 @@ try {
 
 <p>Identifies the user who will receive payment in MoIP</p>
 
-<pre><code>$data['receiver'] = $receiver
-</code></pre>
+<p><code>$data['receiver'] = $receiver;</code></p>
 
 <h4>
 <a name="parcel" class="anchor" href="#parcel"><span class="octicon octicon-link"></span></a>parcel</h4>
@@ -203,17 +223,41 @@ try {
 <li>$min : Minimum number of plots available to the paying.</li>
 <li>$max : Maximum amount of shares available to the paying.</li>
 <li>$rate : Amount of interest a.m per parcel.</li>
-<li>
-<p>$transfer : If <code>true</code> sets the default value of the interest will be paid by the paying MOIP.</p>
+<li>$transfer : If <code>true</code> sets the default value of the interest will be paid by the paying MOIP.</li>
+</ol>
 
-<p>$data['parcel'] =&gt; [
+<pre><code>$data['parcel'] =&gt; [
     'min'       =&gt; 2, 
     'max'       =&gt; 12, 
     'rate'      =&gt; 1.5, 
     'transfer'  =&gt; false
-];</p>
-</li>
+];
+</code></pre>
+
+<h4>
+<a name="comission" class="anchor" href="#comission"><span class="octicon octicon-link"></span></a>comission</h4>
+
+<h5>
+<a name="reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean" class="anchor" href="#reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean"><span class="octicon octicon-link"></span></a>$reason: String, $receiver: String, $value: Number, $percentageValue: Boolean, $ratePayer: Boolean</h5>
+
+<ol>
+<li>$ reason: Reason / Motif to which the secondary recipient will receive the set value.</li>
+<li>$ receiver: Login MOIP the User to receive the value.</li>
+<li>$ value: Value which will be allocated to the secondary receiver.</li>
+<li>$ percentageValue: If "true" sets that value will be calculated in relation to the percentage of
+the total value of the transaction.</li>
+<li>$ ratepayer: If "true" sets that secondary recipient will pay the MOIP with
+value received.</li>
 </ol>
+
+<pre><code>$data['comission'] =&gt; [ 
+    'value' =&gt; 7, 
+    'reason' =&gt; 'Taxa MoIP', 
+    'ratePayer' =&gt; true, 
+    'percentageValue' =&gt; true, 
+    'receiver' =&gt; 'suporte@moip.com.br'
+];
+</code></pre>
 
 <h3>
 <a name="data-response" class="anchor" href="#data-response"><span class="octicon octicon-link"></span></a>Data Response</h3>
@@ -256,26 +300,23 @@ try {
 </tr>
 </tbody>
 </table>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/SOSTheBlack/moip/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/SOSTheBlack/moip/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 
-          <p class="repo-owner"><a href="https://github.com/SOSTheBlack/moip"></a> is maintained by <a href="https://github.com/SOSTheBlack">SOSTheBlack</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+<p>The MoIP pakacge is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a></p>
+      </section>
     </div>
 
-            <script type="text/javascript">
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Moip maintained by <a href="https://github.com/SOSTheBlack">SOSTheBlack</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -285,6 +326,7 @@ try {
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
