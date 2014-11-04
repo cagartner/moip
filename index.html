@@ -32,7 +32,7 @@
 
         <section id="main_content">
           <h1>
-<a name="moip-laravel-package" class="anchor" href="#moip-laravel-package"><span class="octicon octicon-link"></span></a>MoIP (Laravel Package)</h1>
+<a id="moip-laravel-package" class="anchor" href="#moip-laravel-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>MoIP (Laravel Package)</h1>
 
 <hr>
 
@@ -58,13 +58,13 @@
 <li><code>Moip::response()</code></li>
 </ul>
 
-<p><img src="http://www.tickimg.com.br/uploads/_captura_de_tela_de.png" alt=""></p>
+<p><img src="http://www.tickimg.com.br/uploads/_captura_de_tela_de.png" alt="Moip"></p>
 
 <h2>
-<a name="instalation" class="anchor" href="#instalation"><span class="octicon octicon-link"></span></a>Instalation</h2>
+<a id="instalation" class="anchor" href="#instalation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalation</h2>
 
 <h3>
-<a name="laravel-42-and-blow" class="anchor" href="#laravel-42-and-blow"><span class="octicon octicon-link"></span></a>Laravel 4.2 and Blow</h3>
+<a id="laravel-42-and-blow" class="anchor" href="#laravel-42-and-blow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Laravel 4.2 and Blow</h3>
 
 <p>Begin by installing this package through Composer. Edit your project's <code>composer.json</code> file to require <code>sostheblack/moip</code>.</p>
 
@@ -106,15 +106,15 @@
 </code></pre>
 
 <h3>
-<a name="laravel-5-and-abouve" class="anchor" href="#laravel-5-and-abouve"><span class="octicon octicon-link"></span></a>Laravel 5 and Abouve</h3>
+<a id="laravel-5-and-abouve" class="anchor" href="#laravel-5-and-abouve" aria-hidden="true"><span class="octicon octicon-link"></span></a>Laravel 5 and Abouve</h3>
 
 <p>coming soon</p>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
-<a name="simple" class="anchor" href="#simple"><span class="octicon octicon-link"></span></a>simple</h3>
+<a id="simple" class="anchor" href="#simple" aria-hidden="true"><span class="octicon octicon-link"></span></a>simple</h3>
 
 <p>Sent only the total sale, is configured to send data in <code>app/config/moip.php</code></p>
 
@@ -127,7 +127,7 @@ try {
 </code></pre>
 
 <h3>
-<a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced</h3>
+<a id="advanced" class="anchor" href="#advanced" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced</h3>
 
 <p>Fully customize the data sent!</p>
 
@@ -135,6 +135,8 @@ try {
     'unique_id' =&gt; 100000001,
     'reason'    =&gt; 'market of Natal 01',
     'receiver'  =&gt; 'integracao@moip.com.br',
+    'returnURL' =&gt; 'https://meusite.com.br/cliente/$id/pedido/pedidorealizado',
+    'notificationURL' =&gt; 'https://meusite.com.br/nasp',
     'parcel'    =&gt; [
         'min'       =&gt; 2, 
         'max'       =&gt; 12, 
@@ -152,6 +154,21 @@ try {
         'ratePayer'       =&gt; true,
         'percentageValue' =&gt; true,
         'receiver'        =&gt; 'suporte@moip.com.br',
+    ],
+    'billet' =&gt; [
+        'expiration' =&gt; 3,
+        'workingDays'=&gt; true,
+        'instructions' =&gt; [
+            'firstLine' =&gt; 'First line of comment of billet',
+            'secondLine'=&gt; 'Second line of comment of billet',
+            'lastLine'  =&gt; 'Last line of comment of billet'
+        ],
+        'urlLogo' =&gt; 'http://seutie.com.br/logo.png'
+    ]
+    'message' =&gt; [
+        'firstLine' =&gt; 'First comment of checkout',
+        'secondLine'=&gt; 'Second comment of checkout',
+        'lastLine'  =&gt; 'Last comment of checkout'
     ]
 ];
 try {
@@ -162,13 +179,15 @@ try {
 </code></pre>
 
 <h2>
-<a name="sending-parameters" class="anchor" href="#sending-parameters"><span class="octicon octicon-link"></span></a>Sending parameters</h2>
+<a id="sending-parameters" class="anchor" href="#sending-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sending parameters</h2>
 
 <h4>
-<a name="values" class="anchor" href="#values"><span class="octicon octicon-link"></span></a>values</h4>
+<a id="values" class="anchor" href="#values" aria-hidden="true"><span class="octicon octicon-link"></span></a>values</h4>
+
+<hr>
 
 <h5>
-<a name="full_price_products-number-freight-number-coupon-number" class="anchor" href="#full_price_products-number-freight-number-coupon-number"><span class="octicon octicon-link"></span></a>$full_price_products: Number, $freight: Number, $coupon: Number</h5>
+<a id="full_price_products-number-freight-number-coupon-number" class="anchor" href="#full_price_products-number-freight-number-coupon-number" aria-hidden="true"><span class="octicon octicon-link"></span></a>$full_price_products: Number, $freight: Number, $coupon: Number</h5>
 
 <ol>
 <li>$full_price_products: Responsible for setting the value that should be paid.</li>
@@ -184,40 +203,48 @@ try {
 </code></pre>
 
 <h4>
-<a name="unique_id" class="anchor" href="#unique_id"><span class="octicon octicon-link"></span></a>unique_id</h4>
+<a id="unique_id" class="anchor" href="#unique_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>unique_id</h4>
+
+<hr>
 
 <h5>
-<a name="id-string" class="anchor" href="#id-string"><span class="octicon octicon-link"></span></a>$id: String</h5>
+<a id="id-string" class="anchor" href="#id-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$id: String</h5>
 
 <p>Its unique identifier request this same information will be sent to you on our notification of changes in status so that you can identify and treat your application status.</p>
 
 <p><code>$data['unique_id'] = $id;</code></p>
 
 <h4>
-<a name="reason" class="anchor" href="#reason"><span class="octicon octicon-link"></span></a>reason</h4>
+<a id="reason" class="anchor" href="#reason" aria-hidden="true"><span class="octicon octicon-link"></span></a>reason</h4>
+
+<hr>
 
 <h5>
-<a name="value-string" class="anchor" href="#value-string"><span class="octicon octicon-link"></span></a>$value: String</h5>
+<a id="value-string" class="anchor" href="#value-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$value: String</h5>
 
 <p>Responsible for defining the reason for the payment</p>
 
 <p><code>$data['reason'] =&gt; $value;</code></p>
 
 <h4>
-<a name="receiver" class="anchor" href="#receiver"><span class="octicon octicon-link"></span></a>receiver</h4>
+<a id="receiver" class="anchor" href="#receiver" aria-hidden="true"><span class="octicon octicon-link"></span></a>receiver</h4>
+
+<hr>
 
 <h5>
-<a name="receiver-string" class="anchor" href="#receiver-string"><span class="octicon octicon-link"></span></a>$receiver String</h5>
+<a id="receiver-string" class="anchor" href="#receiver-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$receiver String</h5>
 
 <p>Identifies the user who will receive payment in MoIP</p>
 
 <p><code>$data['receiver'] = $receiver;</code></p>
 
 <h4>
-<a name="parcel" class="anchor" href="#parcel"><span class="octicon octicon-link"></span></a>parcel</h4>
+<a id="parcel" class="anchor" href="#parcel" aria-hidden="true"><span class="octicon octicon-link"></span></a>parcel</h4>
+
+<hr>
 
 <h5>
-<a name="min-number-max-number-rate--number-transfer--boolean" class="anchor" href="#min-number-max-number-rate--number-transfer--boolean"><span class="octicon octicon-link"></span></a>$min: Number, $max: Number, $rate : Number, $transfer : Boolean</h5>
+<a id="min-number-max-number-rate--number-transfer--boolean" class="anchor" href="#min-number-max-number-rate--number-transfer--boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>$min: Number, $max: Number, $rate : Number, $transfer : Boolean</h5>
 
 <p>Responsible for the installment which will be available to the paying options.</p>
 
@@ -237,18 +264,20 @@ try {
 </code></pre>
 
 <h4>
-<a name="comission" class="anchor" href="#comission"><span class="octicon octicon-link"></span></a>comission</h4>
+<a id="comission" class="anchor" href="#comission" aria-hidden="true"><span class="octicon octicon-link"></span></a>comission</h4>
+
+<hr>
 
 <h5>
-<a name="reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean" class="anchor" href="#reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean"><span class="octicon octicon-link"></span></a>$reason: String, $receiver: String, $value: Number, $percentageValue: Boolean, $ratePayer: Boolean</h5>
+<a id="reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean" class="anchor" href="#reason-string-receiver-string-value-number-percentagevalue-boolean-ratepayer-boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>$reason: String, $receiver: String, $value: Number, $percentageValue: Boolean, $ratePayer: Boolean</h5>
 
 <ol>
-<li>$ reason: Reason / Motif to which the secondary recipient will receive the set value.</li>
-<li>$ receiver: Login MOIP the User to receive the value.</li>
-<li>$ value: Value which will be allocated to the secondary receiver.</li>
-<li>$ percentageValue: If "true" sets that value will be calculated in relation to the percentage of
+<li>$reason: Reason / Motif to which the secondary recipient will receive the set value.</li>
+<li>$receiver: Login MOIP the User to receive the value.</li>
+<li>$value: Value which will be allocated to the secondary receiver.</li>
+<li>$percentageValue: If "true" sets that value will be calculated in relation to the percentage of
 the total value of the transaction.</li>
-<li>$ ratepayer: If "true" sets that secondary recipient will pay the MOIP with
+<li>$ratepayer: If "true" sets that secondary recipient will pay the MOIP with
 value received.</li>
 </ol>
 
@@ -261,8 +290,86 @@ value received.</li>
 ];
 </code></pre>
 
+<h4>
+<a id="billet" class="anchor" href="#billet" aria-hidden="true"><span class="octicon octicon-link"></span></a>billet</h4>
+
+<hr>
+
+<h5>
+<a id="expiration-int-ou-date-workingdays-boolean-instructions-array-urilogo-string" class="anchor" href="#expiration-int-ou-date-workingdays-boolean-instructions-array-urilogo-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$expiration: Int ou Date, $workingDays: Boolean, $instructions: Array(), $uriLogo: String</h5>
+
+<ol>
+<li>$expiration: Date in "YYYY-MM-DD" format or number of days.</li>
+<li>$workingDays: If "expiration" is the amount of days you can set to. "true" to that is counted in business days, the default is calendar days.</li>
+<li>$instructions: Additional Message to be printed on the ticket, up to three messages.</li>
+<li>$urlLogo: URL of your logo maximum dimensions 75px wide by 40px high.</li>
+</ol>
+
+<pre><code>$data['billet'] = [
+    'billet' =&gt; [
+        'expiration' =&gt; 3,
+        'workingDays'=&gt; true,
+        'instructions' =&gt; [
+            'firstLine' =&gt; 'First line of comment of billet'',
+            'secondLine'=&gt; 'Second line of comment of billet'',
+            'lastLine'  =&gt; 'Last line of comment of billet'
+        ],
+        'urlLogo' =&gt; 'http://seutie.com.br/logo.png'
+    ]
+];
+</code></pre>
+
+<h4>
+<a id="message" class="anchor" href="#message" aria-hidden="true"><span class="octicon octicon-link"></span></a>message</h4>
+
+<hr>
+
+<h5>
+<a id="msg-string" class="anchor" href="#msg-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$msg: String</h5>
+
+<ol>
+<li>$msg: Display additional messages at checkout MOIP to your buyer.</li>
+</ol>
+
+<pre><code>$data['message'] =&gt; [
+    'firstLine' =&gt; 'comment of checkout'',
+    'secondLine'=&gt; 'comment of checkout'',
+    'lastLine'  =&gt; 'comment of checkout'
+];
+</code></pre>
+
+<h4>
+<a id="returnurl" class="anchor" href="#returnurl" aria-hidden="true"><span class="octicon octicon-link"></span></a>returnURL</h4>
+
+<hr>
+
+<h5>
+<a id="url--string" class="anchor" href="#url--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$url : String</h5>
+
+<ol>
+<li>$url: responsible for defining the URL that the buyer will be redirected to finalize a payment through checkout MoIP</li>
+</ol>
+
+<pre><code>$dta['returnURL'] =&gt; 'https://meusite.com.br/pedidofinalizado';
+</code></pre>
+
+<h4>
+<a id="notificationurl" class="anchor" href="#notificationurl" aria-hidden="true"><span class="octicon octicon-link"></span></a>notificationURL</h4>
+
+<hr>
+
+<h5>
+<a id="url--string-1" class="anchor" href="#url--string-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>$url : String</h5>
+
+<ol>
+<li>$url: responsible for defining the URL to which the MOIP shall notify to the NASP (Notification of Change in Status of Payment) the change of status.</li>
+</ol>
+
+<pre><code>$dta['notificationURL'] =&gt; 'https://meusite.com.br/nasp';
+</code></pre>
+
 <h3>
-<a name="data-response" class="anchor" href="#data-response"><span class="octicon octicon-link"></span></a>Data Response</h3>
+<a id="data-response" class="anchor" href="#data-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Response</h3>
 
 <table>
 <thead>
@@ -304,7 +411,7 @@ value received.</li>
 </table>
 
 <h3>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
 
 <p>The MoIP pakacge is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a></p>
         </section>
