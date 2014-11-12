@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Moip by SOSTheBlack</title>
+    <meta name="description" content="Moip : This is a package of a payment intermediary called MOIP">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Moip</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Moip</h1>
-          <h2>This is a package of a payment intermediary called MOIP</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/SOSTheBlack/moip">View on GitHub</a>
+
+          <h1 id="project_title">Moip</h1>
+          <h2 id="project_tagline">This is a package of a payment intermediary called MOIP</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/SOSTheBlack/moip/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/SOSTheBlack/moip/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/SOSTheBlack/moip/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/SOSTheBlack/moip/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/SOSTheBlack/moip" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a id="moip-laravel-package" class="anchor" href="#moip-laravel-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>MoIP (Laravel Package)</h1>
 
 <hr>
 
-<p><a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/stable.svg" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/downloads.svg" alt="Total Downloads"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/unstable.svg" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/license.svg" alt="License"></a></p>
+<p><a href="https://www.versioneye.com/user/projects/545c3ce9287666481b000063"><img src="https://www.versioneye.com/user/projects/545c3ce9287666481b000063/badge.svg?style=flat" alt="Dependency Status"></a> <a href="https://scrutinizer-ci.com/g/SOSTheBlack/moip/?branch=develop"><img src="https://scrutinizer-ci.com/g/SOSTheBlack/moip/badges/quality-score.png?b=develop" alt="Scrutinizer Code Quality"></a> <a href="https://travis-ci.org/SOSTheBlack/moip"><img src="https://travis-ci.org/SOSTheBlack/moip.svg?branch=master" alt="Build Status"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/stable.svg" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/downloads.svg" alt="Total Downloads"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/v/unstable.svg" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/sostheblack/moip"><img src="https://poser.pugx.org/sostheblack/moip/license.svg" alt="License"></a></p>
 
-<p>Integrates via API, your e-commerce with MoIP quickly and easily</p>
+<p>Package for integrating its platform with the intermediary payment MoIP.</p>
 
 <ul>
 <li><code>Moip::sendMoip($data);</code></li>
 <li>
-<code>Moip::response</code>;</li>
+<code>Moip::response()</code>;</li>
 </ul>
 
 <p>and response</p>
@@ -77,9 +77,15 @@
 
 <p>Next, update Composer from the Terminal:</p>
 
-<p><code>$ composer update</code></p>
+<pre><code>$ composer update
+</code></pre>
 
-<p>Once that's been completed, the next step operation is to copy the file that is in moip.php <code>vendor/sostheblack/src/config/moip.php</code> and Paste in <code>app/config</code></p>
+<p>Once that's been completed, the next step operation is run this command in terminal</p>
+
+<pre><code>$ php artisan config:publish sostheblack/moip
+</code></pre>
+
+<p>A configuration file will be created in <code>app/config/packages/sostheblack/moip/moip.php</code></p>
 
 <p>Make the necessary settings and proceed to the next step</p>
 
@@ -91,7 +97,7 @@
     'Illuminate\Foundation\Providers\ArtisanServiceProvider',
     'Illuminate\Auth\AuthServiceProvider',
     ...
-    'SOSTheBlack\Moip\ServiceProvider',
+    'SOSTheBlack\Moip\MoipServiceProvider',
 ),
 </code></pre>
 
@@ -137,6 +143,24 @@ try {
     'receiver'  =&gt; 'integracao@moip.com.br',
     'returnURL' =&gt; 'https://meusite.com.br/cliente/$id/pedido/pedidorealizado',
     'notificationURL' =&gt; 'https://meusite.com.br/nasp',
+    'payer'     =&gt; [
+        'name'      =&gt; 'user name',
+        'email'     =&gt; 'integracao@moip.com.br',
+        'payerId'   =&gt; 'id_user',
+        'identity'  =&gt; '111.111.111-11',
+        'phone'     =&gt; '(11) 1111-1111)',
+        'billingAddress' =&gt; [
+            'address'   =&gt; 'Street Love',
+            'number'    =&gt; 45,
+            'complement'=&gt; 'plaza',
+            'city'      =&gt; 'São Paulo',
+            'neighborhood' =&gt; 'Love',
+            'state'     =&gt; 'SP',
+            'country'   =&gt; 'BRA',
+            'zipCode'   =&gt; '01230-000',
+            'phone'     =&gt; '(11) 1 1111-1111)'
+        ]
+    ],    
     'parcel'    =&gt; [
         'min'       =&gt; 2, 
         'max'       =&gt; 12, 
@@ -164,11 +188,18 @@ try {
             'lastLine'  =&gt; 'Last line of comment of billet'
         ],
         'urlLogo' =&gt; 'http://seutie.com.br/logo.png'
-    ]
+    ],
     'message' =&gt; [
         'firstLine' =&gt; 'First comment of checkout',
         'secondLine'=&gt; 'Second comment of checkout',
         'lastLine'  =&gt; 'Last comment of checkout'
+    ],
+    'payment' =&gt; [
+        'creditCard'=&gt; true,
+        'billet'    =&gt; false,
+        'financing' =&gt; false,
+        'debit'     =&gt; false,
+        'debitCard' =&gt; false
     ]
 ];
 try {
@@ -180,6 +211,35 @@ try {
 
 <h2>
 <a id="sending-parameters" class="anchor" href="#sending-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sending parameters</h2>
+
+<h4>
+<a id="payer" class="anchor" href="#payer" aria-hidden="true"><span class="octicon octicon-link"></span></a>payer</h4>
+
+<hr>
+
+<p>Send to MoIP data payer</p>
+
+<pre><code>$data['payer'] = [
+    'payer'     =&gt; [
+        'name'      =&gt; 'user name',
+        'email'     =&gt; 'integracao@moip.com.br',
+        'payerId'   =&gt; 'id_user',
+        'identity'  =&gt; '111.111.111-11',
+        'phone'     =&gt; '(11) 1111-1111)',
+        'billingAddress' =&gt; [
+            'address'   =&gt; 'Street Love',
+            'number'    =&gt; 45,
+            'complement'=&gt; 'plaza',
+            'city'      =&gt; 'São Paulo',
+            'neighborhood' =&gt; 'Love',
+            'state'     =&gt; 'SP',
+            'country'   =&gt; 'BRA',
+            'zipCode'   =&gt; '01230-000',
+            'phone'     =&gt; '(11) 1 1111-1111)'
+        ]
+    ],    
+];
+</code></pre>
 
 <h4>
 <a id="values" class="anchor" href="#values" aria-hidden="true"><span class="octicon octicon-link"></span></a>values</h4>
@@ -195,7 +255,7 @@ try {
 <li>$deduct: Responsible for defining the value of discount will be subtracted from the total to be paid.</li>
 </ol>
 
-<pre><code>$data['values'] =&gt; [
+<pre><code>$data['values'] = [
     'value'     =&gt; $full_price_products,
     'adds'      =&gt; $freigth,
     'dedudct'   =&gt; $deduct
@@ -212,7 +272,8 @@ try {
 
 <p>Its unique identifier request this same information will be sent to you on our notification of changes in status so that you can identify and treat your application status.</p>
 
-<p><code>$data['unique_id'] = $id;</code></p>
+<pre><code>$data['unique_id'] = $id;
+</code></pre>
 
 <h4>
 <a id="reason" class="anchor" href="#reason" aria-hidden="true"><span class="octicon octicon-link"></span></a>reason</h4>
@@ -224,7 +285,8 @@ try {
 
 <p>Responsible for defining the reason for the payment</p>
 
-<p><code>$data['reason'] =&gt; $value;</code></p>
+<pre><code>$data['reason'] = $value;
+</code></pre>
 
 <h4>
 <a id="receiver" class="anchor" href="#receiver" aria-hidden="true"><span class="octicon octicon-link"></span></a>receiver</h4>
@@ -236,7 +298,8 @@ try {
 
 <p>Identifies the user who will receive payment in MoIP</p>
 
-<p><code>$data['receiver'] = $receiver;</code></p>
+<pre><code>$data['receiver'] = $receiver;
+</code></pre>
 
 <h4>
 <a id="parcel" class="anchor" href="#parcel" aria-hidden="true"><span class="octicon octicon-link"></span></a>parcel</h4>
@@ -255,7 +318,7 @@ try {
 <li>$transfer : If <code>true</code> sets the default value of the interest will be paid by the paying MOIP.</li>
 </ol>
 
-<pre><code>$data['parcel'] =&gt; [
+<pre><code>$data['parcel'] = [
     'min'       =&gt; 2, 
     'max'       =&gt; 12, 
     'rate'      =&gt; 1.5, 
@@ -281,7 +344,7 @@ the total value of the transaction.</li>
 value received.</li>
 </ol>
 
-<pre><code>$data['comission'] =&gt; [ 
+<pre><code>$data['comission'] = [ 
     'value' =&gt; 7, 
     'reason' =&gt; 'Taxa MoIP', 
     'ratePayer' =&gt; true, 
@@ -331,7 +394,7 @@ value received.</li>
 <li>$msg: Display additional messages at checkout MOIP to your buyer.</li>
 </ol>
 
-<pre><code>$data['message'] =&gt; [
+<pre><code>$data['message'] = [
     'firstLine' =&gt; 'comment of checkout'',
     'secondLine'=&gt; 'comment of checkout'',
     'lastLine'  =&gt; 'comment of checkout'
@@ -350,7 +413,7 @@ value received.</li>
 <li>$url: responsible for defining the URL that the buyer will be redirected to finalize a payment through checkout MoIP</li>
 </ol>
 
-<pre><code>$dta['returnURL'] =&gt; 'https://meusite.com.br/pedidofinalizado';
+<pre><code>$data['returnURL'] = 'https://meusite.com.br/pedidofinalizado';
 </code></pre>
 
 <h4>
@@ -365,7 +428,33 @@ value received.</li>
 <li>$url: responsible for defining the URL to which the MOIP shall notify to the NASP (Notification of Change in Status of Payment) the change of status.</li>
 </ol>
 
-<pre><code>$dta['notificationURL'] =&gt; 'https://meusite.com.br/nasp';
+<pre><code>$data['notificationURL'] = 'https://meusite.com.br/nasp';
+</code></pre>
+
+<h4>
+<a id="payment" class="anchor" href="#payment" aria-hidden="true"><span class="octicon octicon-link"></span></a>payment</h4>
+
+<hr>
+
+<h5>
+<a id="payment--string" class="anchor" href="#payment--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$payment : String</h5>
+
+<ol>
+<li>$payment: Defines which forms of payment that will be displayed to the payer in Checkout MOIP
+billet: To provide a "Billet Banking" as payment option at checkout.
+financing: To enable the "Financing" as payment option at checkout.
+debit: To provide the "Debit account" as a payment method at checkout.
+creditCard: To provide a "Credit Card" as payment option in checkout.
+debitCard: To provide a "Debit Card" as payment option in checkout.</li>
+</ol>
+
+<pre><code>$data['payment'] = [
+    'creditCard'=&gt; true,
+    'billet'    =&gt; false,
+    'financing' =&gt; false,
+    'debit'     =&gt; false,
+    'debitCard' =&gt; false
+]
 </code></pre>
 
 <h3>
@@ -414,14 +503,18 @@ value received.</li>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
 
 <p>The MoIP pakacge is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a></p>
-        </section>
+      </section>
+    </div>
 
-        <footer>
-          Moip is maintained by <a href="https://github.com/SOSTheBlack">SOSTheBlack</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Moip maintained by <a href="https://github.com/SOSTheBlack">SOSTheBlack</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-                  <script type="text/javascript">
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -432,7 +525,6 @@ value received.</li>
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
+
   </body>
 </html>
